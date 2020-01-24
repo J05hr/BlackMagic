@@ -1,0 +1,2 @@
+# BlackMagic
+BlackMagic Trading Platform

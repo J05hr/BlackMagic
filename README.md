@@ -1,2 +1,2 @@
 # BlackMagic
-BlackMagic Stock Prediction Applications
+BlackMagic Stock Prediction Application

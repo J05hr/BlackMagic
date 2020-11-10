@@ -8,6 +8,7 @@ import math
 def run(filename, movingavgdays, outcomebasis, trainPercent):
     classificationList = []
     finalPrediction = []
+    outdict = {'h': 'hold', 's': 'sell', 'b': 'buy'}
     # get feature and outcomes data as a FeatureVectors object
     allfvs = featex.formatdata(filename, movingavgdays, outcomebasis)
     # get the total number of data points minus the last
@@ -58,23 +59,23 @@ def run(filename, movingavgdays, outcomebasis, trainPercent):
 
         # figure out the predicted outcome
         if res.index(max(res)) == 0:
-            pout = 'b'
+            pout = 'buy'
             monin += 100
             buyin += 100
         elif res.index(max(res)) == 1:
-            pout = 's'
+            pout = 'sell'
             if monin > 100:
                 monin -= 100
                 monout += 100
         else:
-            pout = 'h'
+            pout = 'hold'
         # check if the test prediction was accurate and print
         testString = ""
-        if testfvs.outcomes[fvidx][1] == pout:
+        if outdict[testfvs.outcomes[fvidx][1]] == pout:
             correctcnt += 1
-            testString = "outcome: " + testfvs.outcomes[fvidx][1] + " ,  prediction: " + pout + " ,  Correct"
+            testString = "Correct | Outcome: " + outdict[testfvs.outcomes[fvidx][1]] + " | Prediction: " + pout
         else:
-            testString = "outcome: " + testfvs.outcomes[fvidx][1] + " ,  prediction: " + pout + " ,  Incorrect"
+            testString = "Incorrect | Outcome: " + outdict[testfvs.outcomes[fvidx][1]] + " | Prediction: " + pout
         print(testString)
         cresults.append(testString)
         percnextdayclose = testfvs.perclist[fvidx+1][4]

@@ -35,9 +35,9 @@ class ResultsDialog(BaseClass, FormClass):
         self.profitOverControl.setText('$' + str(round(results.profitOverControl, 2)))
 
         self.finalPrediction = self.findChild(QLabel, 'finalPrediction')
-        self.finalPrediction.setText('{ buy: ' + str(round(results.finalPrediction[0] * 100, 2)) + '%, ' +
+        self.finalPrediction.setText('buy: ' + str(round(results.finalPrediction[0] * 100, 2)) + '%, ' +
                                      'sell: ' + str(round(results.finalPrediction[1] * 100, 2)) + '%, ' +
-                                     'hold: ' + str(round(results.finalPrediction[2] * 100, 2)) + '% }')
+                                     'hold: ' + str(round(results.finalPrediction[2] * 100, 2)) + '%')
 
         self.resultsTableWidget = self.findChild(QTableWidget, 'resultsTableWidget')
         self.updateTableView()

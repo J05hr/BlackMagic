@@ -2,6 +2,7 @@ from PyQt5 import uic
 from pathlib import Path
 from PyQt5.QtWidgets import *
 from BlackMagicPy.gui import resultsDialog
+from BlackMagicPy.core import runClassfication
 
 
 reldir = str(Path.cwd())
@@ -54,8 +55,9 @@ class ManualCWindow(BaseClass, FormClass):
     def runCButtonCallBack(self):
         self.runCButton.setEnabled(False)
         self.runCButton.setText("Running...")
-
-        self.resultsDialog = resultsDialog.ResultsDialog()
+        outcomeRange = (-1 * self.sellBelowSpin.Value(), self.buyAboveSpin.Value())
+        res = runClassfication.run(self.dataFname, self.movingAvgSpin.Value(), outcomeRange, self.trainPercentSpin.Value())
+        self.resultsDialog = resultsDialog.ResultsDialog(res)
         self.resultsDialog.show()
         self.resultsDialog.finished.connect(self.resultsDialogFinishedCallback)
 

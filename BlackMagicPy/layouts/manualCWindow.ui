@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>615</width>
-    <height>505</height>
+    <width>667</width>
+    <height>530</height>
    </rect>
   </property>
   <property name="font">
@@ -274,6 +274,12 @@
        </item>
        <item row="2" column="0">
         <widget class="QDoubleSpinBox" name="sellBelowSpin">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <family>Source Sans Pro</family>
@@ -286,10 +292,19 @@
          <property name="singleStep">
           <double>1.000000000000000</double>
          </property>
+         <property name="value">
+          <double>3.000000000000000</double>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
         <widget class="QDoubleSpinBox" name="buyAboveSpin">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="font">
           <font>
            <family>Source Sans Pro</family>
@@ -298,6 +313,9 @@
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+         <property name="value">
+          <double>3.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -372,7 +390,7 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>273</width>
+        <width>298</width>
         <height>40</height>
        </size>
       </property>
@@ -407,7 +425,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>615</width>
+     <width>667</width>
      <height>26</height>
     </rect>
    </property>

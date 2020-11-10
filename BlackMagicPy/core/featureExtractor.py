@@ -71,9 +71,9 @@ def formatdata(filename, movingavgdays, outcomebasis):
         # if it's between +x% and -y% it was a hold
         # if it's less than -y% then it was a sell
         for idx in range(len(perclist)-1):
-            if perclist[idx+1][4] >= outcomebasis[0]:
+            if perclist[idx+1][4] >= outcomebasis[1]:
                 outcomes.append((perclist[idx][0], 'b'))
-            elif perclist[idx+1][4] <= outcomebasis[1]:
+            elif perclist[idx+1][4] <= outcomebasis[0]:
                 outcomes.append((perclist[idx][0], 's'))
             else:
                 outcomes.append((perclist[idx][0], 'h'))

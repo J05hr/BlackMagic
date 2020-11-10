@@ -72,9 +72,9 @@ def run(filename, movingavgdays, outcomebasis, trainPercent):
         testString = ""
         if testfvs.outcomes[fvidx][1] == pout:
             correctcnt += 1
-            testString = "outcome: " + testfvs.outcomes[fvidx][1] + " ,  prediction: " + pout + " ,  Correct\n"
+            testString = "outcome: " + testfvs.outcomes[fvidx][1] + " ,  prediction: " + pout + " ,  Correct"
         else:
-            testString = "outcome: " + testfvs.outcomes[fvidx][1] + " ,  prediction: " + pout + " ,  Incorrect\n"
+            testString = "outcome: " + testfvs.outcomes[fvidx][1] + " ,  prediction: " + pout + " ,  Incorrect"
         print(testString)
         cresults.append(testString)
         percnextdayclose = testfvs.perclist[fvidx+1][4]

@@ -55,8 +55,8 @@ class ManualCWindow(BaseClass, FormClass):
     def runCButtonCallBack(self):
         self.runCButton.setEnabled(False)
         self.runCButton.setText("Running...")
-        outcomeRange = (-1 * self.sellBelowSpin.Value(), self.buyAboveSpin.Value())
-        res = runClassfication.run(self.dataFname, self.movingAvgSpin.Value(), outcomeRange, self.trainPercentSpin.Value())
+        outcomeRange = (-1 * self.sellBelowSpin.value(), self.buyAboveSpin.value())
+        res = runClassfication.run(self.dataFname, self.movingAvgSpin.value(), outcomeRange, self.trainPercentSpin.value())
         self.resultsDialog = resultsDialog.ResultsDialog(res)
         self.resultsDialog.show()
         self.resultsDialog.finished.connect(self.resultsDialogFinishedCallback)
@@ -66,5 +66,5 @@ class ManualCWindow(BaseClass, FormClass):
         self.runCButton.setText("Run Classification")
 
     def dataSelectedCallBack(self):
-        self.dataFname = self.dataListWidget.selectedItems()
+        self.dataFname = self.dataDir + '\\' + self.dataListWidget.selectedItems()[0].text()
         self.runCButton.setEnabled(True)

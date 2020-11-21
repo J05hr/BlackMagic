@@ -61,6 +61,7 @@ def train(trainingfvs, outcomes, bcount, scount,  hcount):
 
     return td
 
+2188507
 
 def getevidence(fv, trainingfvs, traincount):
     # loop through vectors and get counts for evidence probability

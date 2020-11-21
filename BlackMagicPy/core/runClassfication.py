@@ -42,6 +42,7 @@ def run(filename, movingavgdays, outcomebasis, trainPercent):
     monin = 0
     monout = 0
     buyin = 0
+    control = 0
 
     # loop through the testing data and do classification
     for fvidx in range(len(testfvs.featurelist)-2):
@@ -98,8 +99,11 @@ def run(filename, movingavgdays, outcomebasis, trainPercent):
     print("    p(buy|data)       |     p(sell|data)    |    p(hold|data)")
     print(str(finalPrediction) + "\n")
 
-    # TODO calc profit over control
-    profitOverControl = -1
+    # control is holding the full buy-in for the entire training range.
+    first = testfvs.rawlist[0][4]
+    last = testfvs.rawlist[-3][4]
+    control = buyin * (last / first)
+    profitOverControl = profit - control
 
     return Results(outcomebasis, trainPercent, movingavgdays, accur, profit, buyin, profitOverControl,
                    classificationList, finalPrediction)
